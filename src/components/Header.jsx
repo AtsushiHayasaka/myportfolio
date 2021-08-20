@@ -5,10 +5,10 @@ import {Link} from 'react-router-dom';
 const Header = () => {
 
   return (
-    <header className='header_position header_size '>
+    <header className='header_position header_size header_filter'>
         <div className="container header_flex">
           <div className="logo header_logo">
-            <p className="header__logo_font ">ATSUSHI HAYASAKA</p>
+            <h1 className="header__logo_font ">ATSUSHI HAYASAKA</h1>
           </div>
           <div className="menu header__menu">
             <nav className="menu__nav_pc nav_pc">

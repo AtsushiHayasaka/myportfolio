@@ -18,6 +18,7 @@ body {
 
 img {
   width: 100%;
+  height: 100%;
 }
 
 li {
@@ -59,14 +60,61 @@ button:hover {
   font-family: $font-family-english;
 }
 
+/* mixin
+-------------------------------------------------------------------------- */
+@mixin button($p_up_low, $p_left_right) {
+  position: relative;
+  display: block;
+  padding: $p_up_low $p_left_right;
+  line-height: 1;
+  background: $color-background;
+  border: #333333 solid 1px;
+  transition: all 0.3s ease 0s;
+
+  &:hover {
+    background: $color-active;
+    border-color: $color-active;
+
+    .button__link {
+      color: #ffffff;
+      opacity: 1;
+    }
+  }
+
+  .button__link {
+    color: #333333;
+    transition: all 0.2s ease 0s;
+    font-family: $font-family-english;
+    font-weight: bold;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+    }
+  }
+}
+
 /*===========================================================================
 # header
 =========================================================================== */
 header {
   font-family: $font-family-english;
 }
+.header_filter {
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
 .header_position {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
   line-height: 80px;
+  z-index: 1;
 }
 .header_size {
   height: 80px;
@@ -96,20 +144,201 @@ header {
 
 .menu__link {
   position: relative;
+  display: inline-block;
   // transform: translateY(-5px);
 
   &::after {
     content: '';
     position: absolute;
-    bottom: -4px;
+    bottom: 28px;
     right: 0;
     left: 0;
     height: 1px;
     background-color: $color-active;
     width: 0;
-
-    &:hover::after {
-      width: 100%;
-    }
+    transition: all 0.3s ease 0s;
   }
+
+  &:hover::after {
+    width: 100%;
+  }
+
+  &:hover {
+    color: $color-active;
+  }
+}
+
+/*===========================================================================
+# first-view
+=========================================================================== */
+.first-view {
+  margin-top: 80px;
+  position: relative;
+  margin-bottom: 60px;
+}
+
+.first-view__bg {
+  background-image: url(../images/first-view-kari.jpg);
+  background-repeat: no-repeat;
+  background-position: top right;
+  width: 67.1%;
+  height: 0;
+  padding-top: 54.5454%;
+  margin-right: 0;
+  margin-left: auto;
+}
+
+.first-view__title_position {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-30%);
+}
+
+.first-view__name_font {
+  font-family: $font-family-english;
+  font-weight: lighter;
+  font-size: 80px;
+  line-height: 1;
+  letter-spacing: 0.1em;
+}
+
+.first-view_mt {
+  margin-top: 20px;
+}
+
+.first-view__job_font {
+  font-family: $font-family-english;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: 1;
+}
+
+.first-view__description {
+  font-size: 17px;
+  line-height: 1.764705;
+}
+
+.first-view__description_mt {
+  margin-top: 40px;
+}
+
+/*===========================================================================
+# footer
+=========================================================================== */
+.footer {
+  margin-bottom: 53px;
+}
+.footer__lists_flex {
+  display: flex;
+}
+
+.footer__link {
+  &:after {
+    bottom: 3px;
+  }
+}
+
+/*===========================================================================
+#section common
+=========================================================================== */
+section {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+.section__title {
+  font-family: $font-family-english;
+  font-size: 30px;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  line-height: 1;
+}
+
+/*===========================================================================
+# about
+=========================================================================== */
+
+.about_flex {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 9.375%;
+}
+
+.about__image-area {
+  width: 27.9%;
+  height: calc(860px * 0.279 * 1.4333);
+}
+
+.about__texts-area {
+  width: 51.976744%;
+}
+
+.about__description_mt {
+  margin-top: 33px;
+}
+
+.button {
+  @include button(19px, 60px);
+}
+
+.about__button_position {
+  margin-left: auto;
+  margin-top: 33px;
+}
+
+/*===========================================================================
+# skills
+=========================================================================== */
+.skills {
+  font-family: $font-family-english;
+}
+
+.skills__lists_position {
+  margin-left: 80px;
+  margin-top: 53px;
+}
+
+.skill__list_font_bold {
+  font-weight: bold;
+}
+
+.skills__list_position {
+  margin-top: 16px;
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+/*===========================================================================
+# Works
+=========================================================================== */
+.works__title {
+  text-align: center;
+}
+
+.swiper-container {
+  margin-top: 80px;
+  width: 100%;
+  padding: 50px 0 120px !important;
+}
+.swiper-wrapper {
+  align-items: center;
+}
+
+.swiper-slide {
+  position: relative;
+  opacity: 0.4;
+  max-width: 450px;
+  max-height: 300px;
+  overflow: hidden;
+  transition: 0.7s;
+  align-items: center;
+}
+
+.swiper-slide-active {
+  opacity: 1;
+  z-index: 1;
+  // max-width: 600px;
+  // max-height: 400px;
+  transform: scale(1.333);
 }

@@ -5,6 +5,7 @@ import Header from './Header';
 import Home from './Home';
 import About from './About';
 import Footer from './Footer';
+// import Swiper from '.Swiper';
 
 const App = () => {
   return (
