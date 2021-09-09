@@ -45,7 +45,7 @@ const ImageSwiper = () => {
         return (
         <SwiperSlide className="works__item swiper__slide" key={index}>
           <Link to={`work/${work_img.id}`} onClick={() => window.scrollTo(0, 0)}>
-            <img className="works__image"  src={work_img.img2} />
+            <img className="works__image"  src={work_img.img2} alt='作品実績' />
           </Link>
         </SwiperSlide>
 

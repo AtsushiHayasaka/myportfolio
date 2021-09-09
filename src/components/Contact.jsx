@@ -1,14 +1,15 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 
 const Contact = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  // const [radio, setRadio] = useState(true);
   const [detail, setDetail] = useState('');
 
+  //radioボタンのvalueの切り替え
   const [val, setVal] = useState('individual');
-  const handleChange = e => setVal(e.target.value);
+  const changeValueOfRadio = e => setVal(e.target.value);
 
+  //必須項目が正しく入力されているか確認する処理
   const onHandleConfirm = e => {
     e.preventDefault();
     const errors = document.querySelectorAll('.error')
@@ -18,7 +19,6 @@ const Contact = () => {
     name !== "" || document.getElementById('name_error').classList.add('error_active');
     email !== "" || document.getElementById('email_error').classList.add('error_active');
     detail !== "" || document.getElementById('detail_error').classList.add('error_active');
-
   }
 
 
@@ -62,7 +62,7 @@ const Contact = () => {
                         type="radio"
                         className="form__radio"
                         value="individual"
-                        onChange={handleChange}
+                        onChange={changeValueOfRadio}
                         checked={val === 'individual'}
                       />
                         <span>個人</span>
@@ -72,7 +72,7 @@ const Contact = () => {
                         type="radio"
                         className="form__radio"
                         value="company"
-                        onChange={handleChange}
+                        onChange={changeValueOfRadio}
                         checked={val === 'company'}
                       />
                         <span>法人</span>

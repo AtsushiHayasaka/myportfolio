@@ -3,23 +3,22 @@ import {Link} from 'react-router-dom';
 import personality from '../images/about-image.jpeg'
 import communication from '../images/about_communication.jpg'
 import juku from '../images/juku.jpg'
-import move from '../images/personality.jpeg'
+
 
 const About = () => {
 
-  const [event, setEvent] = useState('1');
-  console.log(event)
+  const [event, setEvent] = useState(1);
 
+  //表示される年表を切り替える処理
   const addChronology = (id) => {
     setEvent(id)
     const add_active = document.getElementById(id)
-    console.log(add_active);
     const remove_active = document.querySelector(".chronology_active")
-    console.log(remove_active)
     remove_active.classList.remove('chronology_active');
     add_active.classList.add('chronology_active');
   }
 
+  //現在表示されている年表の目次に下線をつける処理
   useEffect(() => {
     const first = document.querySelector('.history__years_first');
     const second = document.querySelector('.history__years_second');
@@ -27,7 +26,7 @@ const About = () => {
     histories.forEach(history => {
       history.classList.remove('current');
     })
-    event == 1 ? first.classList.add('current')
+    event === 1 ? first.classList.add('current')
                 : second.classList.add('current') 
   },[event]);
 
@@ -85,13 +84,14 @@ const About = () => {
                 学生生活最後に何か大会で賞を取りたいと考え、モエレ山爆走そり大会に出場。早々にスピード部門を諦めパフォーマンスに注力した結果、80組の中から見事本賞を受賞した。
               </dd>
             </dl>       
-          </div>
-          
-           <div id='2' className="chronology chronology-second wow fadeInUp">
             <dl className="chronology__list chronology_flex chronology__list_mt">
               <dt className="chronology__year">2020.4</dt>
               <dd className="chronology__description"><span className="sp_dd_title">就職するが、自分のやりたいことが分からず、5月に退職する。</span></dd>
             </dl>
+          </div>
+          
+           <div id='2' className="chronology chronology-second ">
+            
 
             <dl className="chronology__list chronology_flex chronology__list_mt">
               <dt className="chronology__year">2020.7</dt>
@@ -123,7 +123,23 @@ const About = () => {
               <dt className="chronology__year">2021.4</dt>
               <dd className="chronology__description">
                 <span className="sp_dd_title">様々な技術をより学びたいと考え、クリエイターシェアハウスに入居。</span><br/>
-                プログラミング以外にもデザイナー、ライターなど様々な人がいる環境の中で切磋琢磨し、技術を磨いている。
+                プログラミング以外にもデザイナー、ライターなど様々な人がいる環境の中で切磋琢磨し、技術を磨いていく。
+              </dd>
+            </dl>      
+
+            <dl className="chronology__list chronology_flex chronology__list_mt">
+              <dt className="chronology__year">2021.6</dt>
+              <dd className="chronology__description">
+                <span className="sp_dd_title">初のサイト制作の案件を受注</span><br/>
+                 受注後にgitを使用、IE対応と聞き、3日間で初日に一からgitを学び、2日目の深夜からはIEの対応に苦しむ。3日間ほぼ寝ずに作業し、なんとか納期に間に合う。gitの知識と根性を習得。
+              </dd>
+            </dl>      
+
+            <dl className="chronology__list chronology_flex chronology__list_mt">
+              <dt className="chronology__year">2021.7</dt>
+              <dd className="chronology__description">
+                <span className="sp_dd_title">海外向けのWebサイトを作成</span><br/>
+                 初めて実案件でコーディングからのWordPress化を経験。この頃からCSS設計を学び始めていたので、BEMの設計方法を意識しながらコーディングを行なった。
               </dd>
             </dl>      
           </div>
@@ -188,7 +204,7 @@ const About = () => {
       <h2 className="section__title contact__title">Contact</h2>
       <div className="contact__button_area">
         <p className="contact__lead">お仕事のご相談や、ご依頼の方は<br className="sp-only" />こちらをクリック！</p>
-        <button className="button contact__button_position"><Link className="button__link" to="/contact">お問い合わせページへ</Link></button>
+        <button className="button contact__button_position"><Link className="button__link" onClick={() => {window.scrollTo(0, 0)}} to="/contact">お問い合わせページへ</Link></button>
       </div>
 
       </div>

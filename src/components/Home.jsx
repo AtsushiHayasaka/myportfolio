@@ -1,4 +1,4 @@
-import React from 'react';
+import React  from 'react';
 import {Link} from 'react-router-dom';
 import about_image from '../images/about-image.jpeg';
 import  ImageSwiper  from './Swiper.jsx';
@@ -10,12 +10,7 @@ import 'swiper/components/pagination/pagination.scss';
 
 
 const Home = () => {
-
-  const startFromTop = () => {
-    window.scrollTo(0, 0);
-  }
   
-
   return (
     <>
     <div className="first-view wow fadeIn">
@@ -46,7 +41,7 @@ const Home = () => {
           2020年12月からプログラミングの独学を始め、面白さを知り、のめり込んでいく。<br/>
           現在はクリエイターシェアハウスに住み、フリーランスとして活動しながら、自分の技術を磨いている。
           </p>
-          <button className="button about__button_position"><Link onClick={startFromTop} className="button__link" to="/about">View more</Link></button>
+          <button className="button about__button_position"><Link onClick={() => {window.scrollTo(0, 0)}} className="button__link" to="/about"><span>View more</span></Link><div className="wave"></div></button>
         </div>
       </div>
     </section>
@@ -70,7 +65,7 @@ const Home = () => {
       <div className="container">
         <h2 className="section__title works__title wow fadeIn">Works</h2>
         <ImageSwiper className="wow fadeInUp" />
-      <button className="button works__button_position"><Link onClick={startFromTop} className="button__link" to="/works">View all</Link></button>
+      <button className="button works__button_position"><Link onClick={() => {window.scrollTo(0, 0)}} className="button__link" to="/works">View all</Link></button>
       </div>
     </section>
 
@@ -79,7 +74,7 @@ const Home = () => {
       <h2 className="section__title contact__title wow fadeIn">Contact</h2>
       <div className="contact__button_area wow fadeInUp">
         <p className="contact__lead">お仕事のご相談や、ご依頼の方は<br className="sp-only" />こちらをクリック！</p>
-        <button className="button contact__button_position"><Link onClick={startFromTop} className="button__link" to="/contact">お問い合わせページへ</Link></button>
+        <button className="button contact__button_position"><Link onClick={() => {window.scrollTo(0, 0)}} className="button__link" to="/contact">お問い合わせページへ</Link></button>
       </div>
 
       </div>

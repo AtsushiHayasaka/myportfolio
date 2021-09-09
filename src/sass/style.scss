@@ -131,6 +131,7 @@ button:hover {
   font-size: 17px;
   line-height: 1;
   letter-spacing: 0;
+  overflow: hidden;
   background-color: #fff;
   border: #333333 solid 1px;
   transition: all 0.3s ease 0s;
@@ -845,9 +846,6 @@ section {
   }
 }
 
-.chronology__list {
-}
-
 .chronology_flex {
   display: flex;
   @include media-sp {
@@ -857,7 +855,7 @@ section {
 
 .chronology__year {
   padding: 25px 0;
-  padding-right: 50px;
+  width: 105px;
   @include media-sp {
     padding-right: 0;
     @include media-sp() {
@@ -874,28 +872,23 @@ section {
   }
 }
 
-.month_wble {
-  .chronology__year {
-    padding-right: 40px;
-
-    @include media-sp {
-      padding-right: 0;
-    }
-  }
-}
-
 .chronology__description {
   position: relative;
   padding: 25px 0;
   padding-left: 70px;
   border-left: solid $color-active 1px;
+  width: calc(100% - 105px);
+
+  @include media-iPad() {
+    width: 100%;
+    padding-left: 50px;
+  }
 
   @include media-sp {
     padding-top: 0;
     padding-left: 0;
     border-left: none;
     font-size: 13px;
-
     &::before {
       display: none;
     }
@@ -1091,12 +1084,24 @@ section {
 
   @include media-sp() {
     grid-template-columns: repeat(1, 1fr);
-    row-gap: 80px;
+    row-gap: 40px;
   }
 }
 
 .sub-works__image-area {
   transition: all 0.5s ease 0s;
+  max-height: 370px;
+  @media only screen and (max-width: 1024px) {
+    max-height: 315px;
+  }
+
+  @include media-iPad() {
+    max-height: 233px;
+  }
+
+  @include media-sp() {
+    max-height: 233px;
+  }
 
   a:hover {
     opacity: 0.9;
@@ -1116,7 +1121,6 @@ section {
 .unpublished-work {
   display: inline-block;
   font-size: 18px;
-  // border-bottom: solid 1px $color-default;
 
   @include media-sp() {
     font-size: 16px;
@@ -1158,6 +1162,7 @@ section {
   position: relative;
   @include media-iPad() {
     width: 100%;
+    margin-top: 20px;
   }
   @include media-sp() {
     margin-top: 30px;
@@ -1220,6 +1225,12 @@ section {
 .fa-angle-double-left_mt {
   display: inline-block;
   padding-right: 5px;
+}
+
+.unpublished-work__image {
+  margin: 150px 0;
+  font-size: 18px;
+  text-align: center;
 }
 
 /*===========================================================================
@@ -1334,6 +1345,8 @@ textarea {
 
 .form__radio {
   appearance: none;
+  display: none;
+  opacity: 0;
 }
 
 .form__radio + span {
@@ -1374,10 +1387,6 @@ textarea {
     opacity: 0;
   }
 }
-
-// .form__radio {
-//   display: none;
-// }
 
 .form__radio:checked + span::after {
   opacity: 1;

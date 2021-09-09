@@ -23,9 +23,6 @@ const Works = () => {
             )
           })}
         </div>
-        <div className="unpublished-work-area">
-          <p className="unpublished-work">この他非公開実績が１件あります</p>
-        </div>
           
         </div>
       </section>
