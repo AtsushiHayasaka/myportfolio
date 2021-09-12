@@ -62,8 +62,6 @@ const workContents = [
       'Web制作会社さんからホームページ1ページのリニューアルのお仕事を頂き、行いました。gitを使ってバージョン管理をし、IE対応であったのでVirtualBoxを用いて、Windowsの仮想環境を構築して作業を進めて行きました。\n納期が短いお仕事でしたがなんとか納期内に完成することができました。',
     img1: require('../images/noimage.jpg').default,
     img2: require('../images/noimage.jpg').default,
-    img3: require('../images/noimage.jpg').default,
-    url: 'http://daytora3rd.atsushihayasaka.com/',
   },
 
   {
